@@ -1,0 +1,70 @@
+/* Animations */
+@keyframes sidebarIn {
+  from {
+    opacity: 0;
+    transform: translateX(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes panelSlide {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes toastIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 20px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+/* List item stagger */
+.preset-item {
+  animation: slideUp 0.25s ease backwards;
+}
+
+.preset-item:nth-child(1) { animation-delay: 0.02s; }
+.preset-item:nth-child(2) { animation-delay: 0.04s; }
+.preset-item:nth-child(3) { animation-delay: 0.06s; }
+.preset-item:nth-child(4) { animation-delay: 0.08s; }
+.preset-item:nth-child(5) { animation-delay: 0.1s; }
+.preset-item:nth-child(6) { animation-delay: 0.12s; }
+.preset-item:nth-child(7) { animation-delay: 0.14s; }
+.preset-item:nth-child(8) { animation-delay: 0.16s; }
+.preset-item:nth-child(9) { animation-delay: 0.18s; }
+.preset-item:nth-child(n+10) { animation-delay: 0.2s; }

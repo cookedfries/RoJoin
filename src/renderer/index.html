@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com" />
+  <title>RoJoin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/components.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h1 class="logo">RoJoin</h1>
+      </div>
+      <nav class="sidebar-nav" role="tablist">
+        <button type="button" class="sidebar-item active" role="tab" aria-selected="true" data-tab="presets">
+          <span class="sidebar-item-icon" aria-hidden="true">📋</span>
+          Presets
+        </button>
+        <button type="button" class="sidebar-item" role="tab" aria-selected="false" data-tab="keybind">
+          <span class="sidebar-item-icon" aria-hidden="true">⌨</span>
+          Keybind
+        </button>
+      </nav>
+    </aside>
+    <main class="main">
+      <div class="main-content">
+        <div id="panel-presets" class="panel active" role="tabpanel">
+          <h2 class="panel-title">Presets</h2>
+          <p class="panel-desc">Save game IDs and switch between them. Set one as active to use with your keybind.</p>
+
+          <section class="section">
+            <h3 class="section-title">Add preset</h3>
+            <div class="form-row">
+              <div class="form-group" style="flex: 1; min-width: 140px;">
+                <label for="newName">Name</label>
+                <input type="text" id="newName" placeholder="e.g. My Game" />
+              </div>
+              <div class="form-group" style="flex: 1.2; min-width: 180px;">
+                <label for="newPlaceId">Game ID / Place ID</label>
+                <input type="text" id="newPlaceId" placeholder="Paste ID (e.g. 2753915549)" />
+              </div>
+              <div class="form-group" style="flex: 0 0 auto;">
+                <label>&nbsp;</label>
+                <button type="button" class="btn btn-primary" id="btnAddPreset">Add</button>
+              </div>
+            </div>
+            <p class="hint">From Roblox: games.roblox.com/games/<strong>&lt;Place ID&gt;</strong>/...</p>
+          </section>
+
+          <section class="section">
+            <h3 class="section-title">Saved presets</h3>
+            <ul class="preset-list" id="presetList"></ul>
+            <div class="empty-state" id="emptyPresets" style="display: none;">No presets yet. Add one above.</div>
+          </section>
+        </div>
+
+        <div id="panel-keybind" class="panel" role="tabpanel">
+          <h2 class="panel-title">Keybind</h2>
+          <p class="panel-desc">Press this combo anywhere to join the active preset's server.</p>
+
+          <section class="section">
+            <h3 class="section-title">Global shortcut</h3>
+            <div class="keybind-block">
+              <button type="button" class="btn btn-primary" id="btnSetKeybind">Set keybind</button>
+              <span class="keybind-current" id="currentKeybind">—</span>
+            </div>
+            <div id="keybindListening" class="keybind-listening" style="display: none;">Listening for key…</div>
+            <p class="hint">Supports single keys (F10) or combos (Ctrl+E, Ctrl+Shift+J).</p>
+          </section>
+        </div>
+      </div>
+    </main>
+  </div>
+  <div id="toast" class="toast" aria-live="polite"></div>
+  <script src="renderer.js"></script>
+</body>
+</html>
