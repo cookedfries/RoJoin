@@ -1,5 +1,5 @@
 RoJoin is a roblox tool that allows for anyone on windows (might work with linux with wine or some sort, not sure) to serverhop with a press of a button
-without needing to inject any thought of code to roblox. This just uses roblox server API's to request your selected game servers and joins it. All the code is opensources
+without needing to inject any sought of code to roblox. This just uses roblox server API's to request your selected game servers and joins it. All the code is opensources
 so you build it your self with npm. 
 
 
